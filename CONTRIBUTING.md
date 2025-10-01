@@ -27,9 +27,10 @@ Use `uv run` to execute all Django commands through the managed environment:
 Seed data is stored in `data/events.json`. Update this file if you want to supply new default events. Always verify that JSON entries include at minimum `title` and an ISO-formatted `event_date`.
 
 ## Submitting changes
-1. Create a feature branch.
-2. Run the test suite (`uv run python manage.py test`).
-3. Document user-facing changes in `README.md` when relevant.
-4. Open a pull request describing the motivation, the approach taken, and any follow-up work.
+1. Leave a star ⭐
+2. Create a feature branch.
+3. Run the test suite (`uv run python manage.py test`).
+4. Document user-facing changes in `README.md` when relevant.
+5. Open a pull request describing the motivation, the approach taken, and any follow-up work.
 
 By keeping these steps in mind we can provide a smooth onboarding experience for contributors joining Hacktoberfest 2025 with Django Cameroon.
