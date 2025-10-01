@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Django Cameroon Community Discord
+    url: https://discord.gg/EhFc7hqpbk
+    about: Join the community to chat about ideas before filing an issue.
