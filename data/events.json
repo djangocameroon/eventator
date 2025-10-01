@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Hacktoberfest 2025 Kickoff Night",
+    "description": "Join Django Cameroon as we kick off Hacktoberfest 2025 with lightning talks, contribution stations, and a live DJ.",
+    "event_date": "2025-10-01",
+    "location": "Yaoundé Digital Innovation Hub",
+    "organizer": "Django Cameroon",
+    "registration_url": "https://lu.ma/django-cmr-hacktoberfest"
+  },
+  {
+    "title": "Open Source Safari: Django Sprint",
+    "description": "A full day of pair-programming focused on triaging Django issues and reviewing Hacktoberfest pull requests.",
+    "event_date": "2025-10-12",
+    "location": "ActivSpaces Douala",
+    "organizer": "Django Cameroon",
+    "registration_url": "https://www.meetup.com/django-cameroon/events/opensource-safari"
+  },
+  {
+    "title": "Community Project Showcase",
+    "description": "Celebrate the contributions from the month with lightning demos and swag for standout contributors.",
+    "event_date": "2025-10-31",
+    "location": "Virtual",
+    "organizer": "Django Cameroon x GitHub Octernship",
+    "registration_url": "https://discord.gg/django-cmr"
+  }
+]

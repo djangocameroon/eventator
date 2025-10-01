@@ -1,0 +1,21 @@
+[project]
+name = "eventator"
+version = "0.1.0"
+description = "Community event hub for Hacktoberfest 2025 with Django Cameroon"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Django Cameroon" }]
+dependencies = [
+    "django>=5.0,<5.1",
+    "ruff>=0.13.2",
+]
+
+[project.urls]
+homepage = "https://github.com/DjangoCameroon/Eventator"
+
+[tool.uv]
+package = false
+
+[tool.djlint]
+indent = 2
+profile = "django"

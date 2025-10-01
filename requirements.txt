@@ -1,0 +1,4 @@
+asgiref==3.9.2
+django==5.0.14
+ruff==0.13.2
+sqlparse==0.5.3
