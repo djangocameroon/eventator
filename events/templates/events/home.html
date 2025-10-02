@@ -1,177 +1,185 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eventator | Hacktoberfest 2025 x Django Cameroon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: 'Poppins', ui-sans-serif, system-ui;
-      }
-      .bg-grid {
-        background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 0);
-        background-size: 24px 24px;
-      }
-    </style>
-  </head>
-  <body class="bg-slate-950 text-slate-100">
-    <header class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900">
-      <div class="absolute inset-0 bg-grid opacity-40"></div>
-      <div class="relative mx-auto max-w-5xl px-6 py-20 text-center">
-        <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-indigo-200">Hacktoberfest 2025 • Django Cameroon</div>
-        <h1 class="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
-          Eventator keeps our community inspired.
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
-          Browse upcoming gatherings, coding nights, and contribution sprints. Submit your idea and let's grow the Django Cameroon footprint during Hacktoberfest 2025.
-        </p>
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-indigo-200">
-          <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
-            <span class="inline-flex h-2 w-2 rounded-full bg-green-400"></span>
-            <strong>{{ events|length }}</strong>
-            live events
-          </span>
-          <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
-            <span class="inline-flex h-2 w-2 rounded-full bg-amber-400"></span>
-            <strong>{{ pending_count }}</strong>
-            ideas in review
-          </span>
-        </div>
-      </div>
-    </header>
+<html lang="en" class="scroll-smooth">
 
-    <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eventator | Hacktoberfest 2025 x Django Cameroon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', ui-sans-serif, system-ui;
+    }
+
+    .bg-grid {
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+  <header class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-20 text-center">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-indigo-200">
+        Hacktoberfest 2025 • Django Cameroon</div>
       {% if messages %}
-        <section class="space-y-4">
-          {% for message in messages %}
-            <div class="rounded-lg border border-green-400/40 bg-green-500/10 px-4 py-3 text-sm text-green-200">
-              {{ message }}
-            </div>
-          {% endfor %}
-        </section>
+      <div class="space-y-4">
+        {% for message in messages %}
+        <div class="rounded-lg border border-green-400/40 bg-green-500/10 px-4 py-3 text-sm text-green-200">
+          {{ message }}
+        </div>
+        {% endfor %}
+      </div>
       {% endif %}
+      <h1 class="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+        Eventator keeps our community inspired.
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+        Browse upcoming gatherings, coding nights, and contribution sprints. Submit your idea and let's grow the Django
+        Cameroon footprint during Hacktoberfest 2025.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-indigo-200">
+        <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
+          <span class="inline-flex h-2 w-2 rounded-full bg-green-400"></span>
+          <strong>{{ events|length }}</strong>
+          live events
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
+          <span class="inline-flex h-2 w-2 rounded-full bg-amber-400"></span>
+          <strong>{{ pending_count }}</strong>
+          ideas in review
+        </span>
+      </div>
+    </div>
+  </header>
 
-      <section>
-        <div class="flex items-center justify-between gap-4">
-          <h2 class="text-2xl font-semibold text-white">Upcoming &amp; Featured Events</h2>
-          <a
-            href="#event-form"
-            class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:scale-105"
-          >
-            Submit an idea
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
-              <path fill-rule="evenodd" d="M10.75 3.75a.75.75 0 0 0-1.5 0v5.5h-5.5a.75.75 0 0 0 0 1.5h5.5v5.5a.75.75 0 0 0 1.5 0v-5.5h5.5a.75.75 0 0 0 0-1.5h-5.5z" clip-rule="evenodd" />
+  <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16">
+    <section>
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-2xl font-semibold text-white">Upcoming &amp; Featured Events</h2>
+        <a href="#event-form"
+          class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:scale-105">
+          Submit an idea
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+            <path fill-rule="evenodd"
+              d="M10.75 3.75a.75.75 0 0 0-1.5 0v5.5h-5.5a.75.75 0 0 0 0 1.5h5.5v5.5a.75.75 0 0 0 1.5 0v-5.5h5.5a.75.75 0 0 0 0-1.5h-5.5z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {% for event in events %}
+        <article
+          class="group flex h-full flex-col rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur transition hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-500/20">
+          <div class="flex items-center justify-between text-sm text-indigo-200">
+            <div class="inline-flex items-center gap-2">
+              <span class="inline-flex size-2 rounded-full bg-lime-400"></span>
+              {{ event.event_date|date:"M d, Y" }}
+            </div>
+          </div>
+
+          <h3 class="mt-1 text-xl font-semibold text-white group-hover:text-indigo-200">
+            {{ event.title }}
+          </h3>
+          <div class="flex items-center justify-start gap-2 w-fit mt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" class="text-indigo-300 size-4">
+              <path
+                d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"
+                stroke="currentColor" stroke-width="1.5" />
+              <path
+                d="M12 2C16.8706 2 21 6.03298 21 10.9258C21 15.8965 16.8033 19.3847 12.927 21.7567C12.6445 21.9162 12.325 22 12 22C11.675 22 11.3555 21.9162 11.073 21.7567C7.2039 19.3616 3 15.9137 3 10.9258C3 6.03298 7.12944 2 12 2Z"
+                stroke="currentColor" stroke-width="1.5" />
             </svg>
-          </a>
-        </div>
-        {% if events %}
-          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {% for event in events %}
-              <article class="group flex h-full flex-col rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur transition hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-500/20">
-                <div class="flex items-center justify-between text-sm text-indigo-200">
-                  <div class="inline-flex items-center gap-2">
-                    <span class="inline-flex h-2 w-2 rounded-full bg-lime-400"></span>
-                    {{ event.event_date|date:"M d, Y" }}
-                  </div>
-                  <span class="rounded-full border border-indigo-300/30 px-3 py-1 text-xs uppercase tracking-wider">
-                    {{ event.location }}
-                  </span>
-                </div>
-                <h3 class="mt-5 text-xl font-semibold text-white group-hover:text-indigo-200">
-                  {{ event.title }}
-                </h3>
-                <p class="mt-3 line-clamp-4 text-sm text-slate-200/80">
-                  {{ event.description }}
-                </p>
-                <dl class="mt-5 space-y-2 text-xs text-indigo-100/80">
-                  <div class="flex items-start justify-between gap-3">
-                    <dt class="font-semibold uppercase tracking-wide text-indigo-200">Organizer</dt>
-                    <dd class="text-right">{{ event.organizer }}</dd>
-                  </div>
-                  {% if event.registration_url %}
-                    <div class="flex items-start justify-between gap-3">
-                      <dt class="font-semibold uppercase tracking-wide text-indigo-200">Register</dt>
-                      <dd>
-                        <a
-                          href="{{ event.registration_url }}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="text-indigo-300 underline decoration-dotted underline-offset-4 hover:text-indigo-100"
-                        >
-                          Event page
-                        </a>
-                      </dd>
-                    </div>
-                  {% endif %}
-                </dl>
-              </article>
-            {% endfor %}
+            <div class="rounded-lg bg-indigo-300/20 px-3 italic py-1 text-xs uppercase tracking-wider">
+              {{ event.location }}
+            </div>
           </div>
-        {% else %}
-          <p class="mt-8 rounded-xl border border-indigo-300/30 bg-white/5 p-6 text-sm text-indigo-100/80">
-            No events have been published yet. Be the first to share an idea below – our team will review it and make it shine ✨.
+
+          <p class="my-3 line-clamp-4 text-sm text-slate-200/80 text-overflow-ellipsis">
+            {{ event.description }}
           </p>
-        {% endif %}
-      </section>
+          <hr class="border-t border-white/10" />
+          <dl class="mt-4 space-y-2 text-xs text-indigo-100/80">
+            <div class="flex items-start justify-between gap-3">
+              <dt class="font-semibold uppercase tracking-wide text-indigo-200">Organizer</dt>
+              <dd class="text-right">{{ event.organizer }}</dd>
+            </div>
+            {% if event.registration_url %}
+            <div class="flex items-start justify-between gap-3">
+              <dt class="font-semibold uppercase tracking-wide text-indigo-200">Register</dt>
+              <dd>
+                <a href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center text-indigo-300 underline decoration-dotted underline-offset-4 hover:text-indigo-100">
+                  Event page
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" class="size-3">
+                    <path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
+                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </dd>
+            </div>
+            {% endif %}
+          </dl>
+        </article>
+        {% empty %}
+        <p class="mt-8 rounded-xl border border-indigo-300/30 bg-white/5 p-6 text-sm text-indigo-100/80">
+        No events have been published yet. Be the first to share an idea below - our team will review it and make it
+        shine ✨.
+      </p>
+        {% endfor %}
+      </div>
+    </section>
 
-      <section id="event-form" class="rounded-3xl border border-white/5 bg-white/5 px-6 py-10 shadow-2xl shadow-indigo-900/40 md:px-10">
-        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div class="md:max-w-sm">
-            <h2 class="text-2xl font-semibold text-white">Share your event idea</h2>
-            <p class="mt-3 text-sm text-indigo-100/80">
-              Fill out the form and we will review your proposal. Once the organizing team approves it, the event will appear in the live list for everyone to join.
-            </p>
-          </div>
-          <form
-            method="post"
-            class="flex-1 space-y-4"
-          >
-            {% csrf_token %}
-            {% for field in form %}
-              <div>
-                <label class="mb-2 block text-xs font-semibold uppercase tracking-widest text-indigo-200" for="{{ field.id_for_label }}">
-                  {{ field.label }}
-                </label>
-                {{ field }}
-                {% if field.help_text %}
-                  <p class="mt-1 text-xs text-indigo-200/70">{{ field.help_text }}</p>
-                {% endif %}
-                {% for error in field.errors %}
-                  <p class="mt-1 text-xs text-rose-300">{{ error }}</p>
-                {% endfor %}
-              </div>
-            {% endfor %}
-            <button
-              type="submit"
-              class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-indigo-500 px-5 py-3 font-semibold text-white shadow-lg shadow-indigo-500/40 transition hover:translate-y-[-1px] hover:bg-indigo-400"
-            >
-              Send idea
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
-                <path d="M2.94 2.94a.75.75 0 0 1 .82-.165l13 5a.75.75 0 0 1 0 1.39l-13 5A.75.75 0 0 1 2 13.5v-3.318a.75.75 0 0 1 .574-.728L9.5 8l-6.926-1.454A.75.75 0 0 1 2 5.818V2.5a.75.75 0 0 1 .94-.56z" />
-              </svg>
-            </button>
-          </form>
+    <section id="event-form"
+      class="rounded-3xl border border-white/5 bg-white/5 px-6 py-10 shadow-2xl shadow-indigo-900/40 md:px-10">
+      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div class="md:max-w-sm">
+          <h2 class="text-2xl font-semibold text-white">Share your event idea</h2>
+          <p class="mt-3 text-sm text-indigo-100/80">
+            Fill out the form and we will review your proposal. Once the organizing team approves it, the event will
+            appear in the live list for everyone to join.
+          </p>
         </div>
-      </section>
-    </main>
+        <form method="post" class="flex-1 space-y-4">
+          {% csrf_token %}
+          {% for field in form %}
+          <div>
+            <label class="mb-2 block text-xs font-semibold uppercase tracking-widest text-indigo-200"
+              for="{{ field.id_for_label }}">
+              {{ field.label }}
+            </label>
+            {{ field }}
+            {% if field.help_text %}
+            <p class="mt-1 text-xs text-indigo-200/70">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+            <p class="mt-1 text-xs text-rose-300">{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          <button type="submit"
+            class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-indigo-500 px-5 py-3 font-semibold text-white shadow-lg shadow-indigo-500/40 transition hover:translate-y-[-1px] hover:bg-indigo-400">
+            Send idea
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+              <path
+                d="M2.94 2.94a.75.75 0 0 1 .82-.165l13 5a.75.75 0 0 1 0 1.39l-13 5A.75.75 0 0 1 2 13.5v-3.318a.75.75 0 0 1 .574-.728L9.5 8l-6.926-1.454A.75.75 0 0 1 2 5.818V2.5a.75.75 0 0 1 .94-.56z" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <footer class="bg-slate-900/90 py-8 text-center text-xs text-indigo-200">
-      Built for the communuitu by the Django Cameroon community — Hacktoberfest 2025 edition.
-    </footer>
-  </body>
+  <footer class="bg-slate-900/90 py-8 text-center text-xs text-indigo-200">
+    Built for the communuitu by the Django Cameroon community — Hacktoberfest 2025 edition.
+  </footer>
+</body>
+
 </html>
