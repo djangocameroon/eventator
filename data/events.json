@@ -22,5 +22,13 @@
     "location": "Virtual",
     "organizer": "Django Cameroon x GitHub Octernship",
     "registration_url": "https://discord.gg/django-cmr"
+  },
+  {
+    "title": "DjangoCon Cameroon 2025",
+    "description": "The annual DjangoCon Cameroon conference, featuring talks, workshops, and networking opportunities for Django enthusiasts.",
+    "event_date": "2025-11-15",
+    "location": "Douala",
+    "organizer": "Django Cameroon",
+    "registration_url": "https://www.django-cmr.org/djangocon-2025"
   }
 ]
