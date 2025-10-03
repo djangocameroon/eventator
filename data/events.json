@@ -30,7 +30,8 @@
     "location": "Virtual",
     "organizer": "Hacktoberfest",
     "registration_url": "https://www.digitalocean.com/community/events/os-hackathon"
-  }
+  },
+  {
     "title": "DjangoCon Cameroon 2025",
     "description": "The annual DjangoCon Cameroon conference, featuring talks, workshops, and networking opportunities for Django enthusiasts.",
     "event_date": "2025-11-15",
@@ -45,5 +46,13 @@
     "location": "Bamenda Tech Hub",
     "organizer": "Angular Cameroon x Django Cameroon",
     "registration_url": "https://lu.ma/14ixmc37"
-  }  
+  },
+  {
+    "title": "DevFest Bamenda 2025",
+    "description": "DevFest Bamenda is GDG Bamenda’s biggest annual tech event, part of the global Google Developer Groups festival. It brings together developers, entrepreneurs, and tech enthusiasts for two days of talks, workshops, code labs, and networking. The 2025 theme is “Building Safe, Secure and Scalable Solutions with AI and Cloud.”",
+    "event_date": "2025-11-28",
+    "location": "Epic Events Center, Bamenda, Cameroon",
+    "organizer": "Google Developer Group (GDG) Bamenda",
+    "registration_url": "https://bit.ly/devfest-bamenda2025"
+  }
 ]
