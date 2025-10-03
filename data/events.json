@@ -24,6 +24,13 @@
     "registration_url": "https://discord.gg/django-cmr"
   },
   {
+    "title": "Hacktoberfest satellite session #Hyderabad",
+    "description": "Explore DigitalOcean OS Hackathon with Gradient AI, in association with MLH, Okta and AMD. Hackathon, contests, prizes and more!",
+    "event_date": "2025-10-11",
+    "location": "Virtual",
+    "organizer": "Hacktoberfest",
+    "registration_url": "https://www.digitalocean.com/community/events/os-hackathon"
+  }
     "title": "DjangoCon Cameroon 2025",
     "description": "The annual DjangoCon Cameroon conference, featuring talks, workshops, and networking opportunities for Django enthusiasts.",
     "event_date": "2025-11-15",
