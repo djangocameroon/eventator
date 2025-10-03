@@ -6,4 +6,5 @@ app_name = "events"
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("submissions/", views.submissions, name="submissions"),
 ]

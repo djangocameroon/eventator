@@ -1,0 +1,80 @@
+{% extends 'events/base.html' %}
+
+{% block title %}Submissions | Eventator{% endblock %}
+
+{% block header_content %}
+<div
+  class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-indigo-200">
+  Hacktoberfest 2025 • Django Cameroon</div>
+<h1 class="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+  All Submissions & Review Status
+</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+  Track all submitted event ideas and their current review status.
+</p>
+<div class="mt-10 flex items-center justify-center gap-4">
+  <a href="{% url 'events:home' %}"
+    class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2 text-sm text-indigo-200 transition hover:bg-white/10">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+      <path fill-rule="evenodd"
+        d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+        clip-rule="evenodd" />
+    </svg>
+    Back to Home
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+    <section>
+      <div class="overflow-hidden rounded-3xl border border-white/5 bg-white/5 shadow-2xl shadow-indigo-900/40">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="border-b border-white/10 bg-white/5">
+              <tr>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Title</th>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Date</th>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Location</th>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Status</th>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Submitted</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              {% for submission in submissions %}
+              <tr class="transition hover:bg-white/5">
+                <td class="px-6 py-4">
+                  <div class="font-semibold text-white">{{ submission.title }}</div>
+                  <div class="mt-1 text-xs text-slate-200/60 line-clamp-2">{{ submission.description }}</div>
+                </td>
+                <td class="px-6 py-4 text-sm text-slate-200">{{ submission.event_date|date:"M d, Y" }}</td>
+                <td class="px-6 py-4 text-sm text-slate-200">{{ submission.location }}</td>
+                <td class="px-6 py-4">
+                  {% if submission.is_published %}
+                  <span
+                    class="inline-flex items-center gap-2 rounded-full bg-green-500/20 px-3 py-1 text-xs font-semibold text-green-300">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-green-400"></span>
+                    Published
+                  </span>
+                  {% else %}
+                  <span
+                    class="inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3 py-1 text-xs font-semibold text-amber-300">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-amber-400"></span>
+                    Under Review
+                  </span>
+                  {% endif %}
+                </td>
+                <td class="px-6 py-4 text-sm text-slate-200/70">{{ submission.created_at|date:"M d, Y" }}</td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="5" class="px-6 py-12 text-center text-sm text-indigo-100/80">
+                  No submissions yet. Be the first to share an idea!
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+{% endblock %}

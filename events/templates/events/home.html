@@ -1,66 +1,51 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+{% extends 'events/base.html' %}
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eventator | Hacktoberfest 2025 x Django Cameroon</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Poppins', ui-sans-serif, system-ui;
-    }
+{% block header_content %}
+<div
+  class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-indigo-200">
+  Hacktoberfest 2025 • Django Cameroon</div>
+{% if messages %}
+<div class="space-y-4">
+  {% for message in messages %}
+  <div class="rounded-lg border border-green-400/40 bg-green-500/10 px-4 py-3 text-sm text-green-200">
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+<h1 class="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+  Eventator keeps our community inspired.
+</h1>
+<p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+  Browse upcoming gatherings, coding nights, and contribution sprints. Submit your idea and let's grow the Django
+  Cameroon footprint during Hacktoberfest 2025.
+</p>
+<div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-indigo-200">
+  <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
+    <span class="inline-flex h-2 w-2 rounded-full bg-green-400"></span>
+    <strong>{{ events|length }}</strong>
+    live events
+  </span>
+  <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
+    <span class="inline-flex h-2 w-2 rounded-full bg-amber-400"></span>
+    <strong>{{ pending_count }}</strong>
+    ideas in review
+  </span>
+  <a href="{% url 'events:submissions' %}"
+    class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2 transition hover:bg-white/10">
+    View all submissions
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+      <path fill-rule="evenodd"
+        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+        clip-rule="evenodd" />
+    </svg>
+  </a>
+</div>
+{% endblock %}
 
-    .bg-grid {
-      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 1px, transparent 0);
-      background-size: 24px 24px;
-    }
-  </style>
-</head>
+{% block main_class %}mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16{% endblock %}
 
-<body class="bg-slate-950 text-slate-100">
-  <header class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900">
-    <div class="absolute inset-0 bg-grid opacity-40"></div>
-    <div class="relative mx-auto max-w-5xl px-6 py-20 text-center">
-      <div
-        class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[.2em] text-indigo-200">
-        Hacktoberfest 2025 • Django Cameroon</div>
-      {% if messages %}
-      <div class="space-y-4">
-        {% for message in messages %}
-        <div class="rounded-lg border border-green-400/40 bg-green-500/10 px-4 py-3 text-sm text-green-200">
-          {{ message }}
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <h1 class="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
-        Eventator keeps our community inspired.
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
-        Browse upcoming gatherings, coding nights, and contribution sprints. Submit your idea and let's grow the Django
-        Cameroon footprint during Hacktoberfest 2025.
-      </p>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-indigo-200">
-        <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
-          <span class="inline-flex h-2 w-2 rounded-full bg-green-400"></span>
-          <strong>{{ events|length }}</strong>
-          live events
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 px-4 py-2">
-          <span class="inline-flex h-2 w-2 rounded-full bg-amber-400"></span>
-          <strong>{{ pending_count }}</strong>
-          ideas in review
-        </span>
-      </div>
-    </div>
-  </header>
-
-  <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16">
+{% block content %}
     <section>
       <div class="flex items-center justify-between gap-4">
         <h2 class="text-2xl font-semibold text-white">Upcoming &amp; Featured Events</h2>
@@ -175,11 +160,4 @@
         </form>
       </div>
     </section>
-  </main>
-
-  <footer class="bg-slate-900/90 py-8 text-center text-xs text-indigo-200">
-    Built for the communuitu by the Django Cameroon community — Hacktoberfest 2025 edition.
-  </footer>
-</body>
-
-</html>
+{% endblock %}
