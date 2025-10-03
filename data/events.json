@@ -31,4 +31,19 @@
     "organizer": "Hacktoberfest",
     "registration_url": "https://www.digitalocean.com/community/events/os-hackathon"
   }
+    "title": "DjangoCon Cameroon 2025",
+    "description": "The annual DjangoCon Cameroon conference, featuring talks, workshops, and networking opportunities for Django enthusiasts.",
+    "event_date": "2025-11-15",
+    "location": "Douala",
+    "organizer": "Django Cameroon",
+    "registration_url": "https://www.django-cmr.org/djangocon-2025"
+  },
+  {
+    "title": "Angular Cameroon Hacktoberfest Collaboration Day",
+    "description": "Join Angular Cameroon and Django Cameroon for a day of cross-community collaboration! Contribute to open-source projects, attend lightning talks, and learn from experienced mentors.",
+    "event_date": "2025-10-20",
+    "location": "Bamenda Tech Hub",
+    "organizer": "Angular Cameroon x Django Cameroon",
+    "registration_url": "https://lu.ma/14ixmc37"
+  }  
 ]
