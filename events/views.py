@@ -30,3 +30,14 @@ def home(request):
         "form": form,
     }
     return render(request, "events/home.html", context)
+
+
+def submissions(request):
+    """Page showing all submitted content with review status."""
+
+    all_events = Event.objects.all().order_by("-created_at")
+
+    context = {
+        "submissions": all_events,
+    }
+    return render(request, "events/submissions.html", context)

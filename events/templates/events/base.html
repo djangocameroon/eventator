@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full">
+
+<head>
+  {% include 'events/includes/head.html' %}
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-slate-950 text-slate-100 flex flex-col min-h-full">
+  {% block header %}
+  <header class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-20 text-center">
+      {% block header_content %}{% endblock %}
+    </div>
+  </header>
+  {% endblock %}
+
+  <main class="{% block main_class %}mx-auto max-w-6xl px-6 py-16{% endblock %} flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'events/includes/footer.html' %}
+</body>
+
+</html>

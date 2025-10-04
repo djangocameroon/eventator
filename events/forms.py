@@ -36,4 +36,5 @@ class EventIdeaForm(forms.ModelForm):
         instance.is_published = False
         if commit:
             instance.save()
+            self.save_m2m()
         return instance
