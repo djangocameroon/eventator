@@ -87,9 +87,21 @@
             </div>
           </div>
 
-          <p class="my-3 line-clamp-4 text-sm text-slate-200/80 text-overflow-ellipsis">
-            {{ event.description }}
-          </p>
+          <div x-data="{ showFull: false }" class="my-3 text-sm text-slate-200/80">
+            <p :class="showFull ? '' : 'line-clamp-4 text-overflow-ellipsis'">
+              {{ event.description }}
+            </p>
+            {% if event.description|length > 160 %}
+              <button
+                type="button"
+                @click="showFull = !showFull"
+                class="mt-2 text-xs text-indigo-300 underline decoration-dotted underline-offset-4 hover:text-indigo-100 transition-all"
+              >
+                <span x-show="!showFull">Show more</span>
+                <span x-show="showFull">Show less</span>
+              </button>
+            {% endif %}
+          </div>
           <hr class="border-t border-white/10" />
           <dl class="mt-4 space-y-2 text-xs text-indigo-100/80">
             <div class="flex items-start justify-between gap-3">
