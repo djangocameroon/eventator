@@ -54,5 +54,14 @@
     "location": "Epic Events Center, Bamenda, Cameroon",
     "organizer": "Google Developer Group (GDG) Bamenda",
     "registration_url": "https://bit.ly/devfest-bamenda2025"
+  },
+  {
+    "title": "AI & Django Hackathon",
+    "description": "A full-day hackathon for AI and Django enthusiasts. Open to all skill levels to collaborate, learn, and network. Mentorship and lightning talks included.",
+    "event_date": "2025-11-17",
+    "location": "Yaoundé, Cameroon",
+    "organizer": "Django Cameroon Community",
+    "registration_url": "https://luma.com/qc8qgwy0"
   }
+  
 ]
