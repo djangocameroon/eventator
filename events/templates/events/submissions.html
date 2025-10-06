@@ -35,6 +35,7 @@
                 <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Title</th>
                 <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Date</th>
                 <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Location</th>
+                <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Votes</th>
                 <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Status</th>
                 <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-indigo-200">Submitted</th>
               </tr>
@@ -48,6 +49,14 @@
                 </td>
                 <td class="px-6 py-4 text-sm text-slate-200">{{ submission.event_date|date:"M d, Y" }}</td>
                 <td class="px-6 py-4 text-sm text-slate-200">{{ submission.location }}</td>
+                <td class="px-6 py-4">
+                  <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" class="text-indigo-300">
+                      <path d="M7.5 21L12 16.5L16.5 21M12 2V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-sm font-semibold text-indigo-200">{{ submission.vote_count }}</span>
+                  </div>
+                </td>
                 <td class="px-6 py-4">
                   {% if submission.is_published %}
                   <span
@@ -67,7 +76,7 @@
               </tr>
               {% empty %}
               <tr>
-                <td colspan="5" class="px-6 py-12 text-center text-sm text-indigo-100/80">
+                <td colspan="6" class="px-6 py-12 text-center text-sm text-indigo-100/80">
                   No submissions yet. Be the first to share an idea!
                 </td>
               </tr>
