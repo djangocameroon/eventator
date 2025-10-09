@@ -103,27 +103,37 @@
             {% endif %}
           </div>
           <hr class="border-t border-white/10" />
-          <dl class="mt-4 space-y-2 text-xs text-indigo-100/80">
-            <div class="flex items-start justify-between gap-3">
-              <dt class="font-semibold uppercase tracking-wide text-indigo-200">Organizer</dt>
-              <dd class="text-right">{{ event.organizer }}</dd>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="flex items-center gap-4 text-xs text-indigo-100/80">
+              <div class="flex items-center gap-2">
+                <dt class="font-semibold uppercase tracking-wide text-indigo-200">Organizer</dt>
+                <dd>{{ event.organizer }}</dd>
+              </div>
+              {% if event.registration_url %}
+              <div class="flex items-center gap-2">
+                <dt class="font-semibold uppercase tracking-wide text-indigo-200">Register</dt>
+                <dd>
+                  <a href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer"
+                    class="text-indigo-300 underline decoration-dotted underline-offset-4 hover:text-indigo-100">
+                    Event page
+                  </a>
+                </dd>
+              </div>
+              {% endif %}
             </div>
-            {% if event.registration_url %}
-            <div class="flex items-start justify-between gap-3">
-              <dt class="font-semibold uppercase tracking-wide text-indigo-200">Register</dt>
-              <dd>
-                <a href="{{ event.registration_url }}" target="_blank" rel="noopener noreferrer"
-                  class="flex items-center text-indigo-300 underline decoration-dotted underline-offset-4 hover:text-indigo-100">
-                  Event page
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" class="size-3">
-                    <path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </dd>
+            <div class="flex items-center gap-2">
+              <button 
+                class="vote-btn group flex items-center gap-2 rounded-full border border-indigo-400/40 px-3 py-2 text-xs font-semibold text-indigo-200 transition hover:border-indigo-400 hover:bg-indigo-500/20 {% if user.is_authenticated and event.is_liked_by_user %}bg-indigo-500/20 border-indigo-400{% endif %}"
+                data-event-id="{{ event.id }}"
+                {% if not user.is_authenticated %}disabled title="Please log in to vote"{% endif %}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" class="vote-icon">
+                  <path d="M7.5 21L12 16.5L16.5 21M12 2V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="vote-count">{{ event.vote_count }}</span>
+                <span class="vote-text">{% if user.is_authenticated and event.is_liked_by_user %}Liked{% else %}Like{% endif %}</span>
+              </button>
             </div>
-            {% endif %}
-          </dl>
+          </div>
         </article>
         {% empty %}
         <p class="mt-8 rounded-xl border border-indigo-300/30 bg-white/5 p-6 text-sm text-indigo-100/80">
@@ -172,4 +182,63 @@
         </form>
       </div>
     </section>
+{% endblock %}
+
+{% block extra_head %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const voteButtons = document.querySelectorAll('.vote-btn');
+    
+    voteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (this.disabled) {
+                return;
+            }
+            
+            const eventId = this.dataset.eventId;
+            const voteCount = this.querySelector('.vote-count');
+            const voteText = this.querySelector('.vote-text');
+            const voteIcon = this.querySelector('.vote-icon');
+            
+            // Add loading state
+            this.disabled = true;
+            this.classList.add('opacity-50');
+            
+            fetch(`/vote/${eventId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'same-origin'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update UI
+                voteCount.textContent = data.vote_count;
+                voteText.textContent = data.voted ? 'Liked' : 'Like';
+                
+                if (data.voted) {
+                    this.classList.add('bg-indigo-500/20', 'border-indigo-400');
+                    voteIcon.style.fill = 'currentColor';
+                } else {
+                    this.classList.remove('bg-indigo-500/20', 'border-indigo-400');
+                    voteIcon.style.fill = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error voting:', error);
+                alert('Error voting. Please try again.');
+            })
+            .finally(() => {
+                // Remove loading state
+                this.disabled = false;
+                this.classList.remove('opacity-50');
+            });
+        });
+    });
+});
+</script>
 {% endblock %}
