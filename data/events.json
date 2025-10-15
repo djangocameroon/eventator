@@ -62,6 +62,14 @@
     "location": "Yaoundé, Cameroon",
     "organizer": "Django Cameroon Community",
     "registration_url": "https://luma.com/qc8qgwy0"
+  },
+  {
+    "title": "Devfest Yaounde",
+    "description": "DevFest Yaoundé is the largest Google Developer Group event happening in the city of Yaoundé, Cameroon — a two-day experience dedicated to innovation, learning, and community.",
+    "event_date": "2025-11-18",
+    "location": "Yaoundé, Cameroon",
+    "organizer": "Google Developer Group (GDG) Yaounde",
+    "registration_url": "https://gdg.community.dev/events/details/google-gdg-yaounde-presents-devfest-yaounde-2025/"
   }
   
 ]
