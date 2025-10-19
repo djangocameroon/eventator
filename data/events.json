@@ -62,6 +62,14 @@
     "location": "Yaoundé, Cameroon",
     "organizer": "Django Cameroon Community",
     "registration_url": "https://luma.com/qc8qgwy0"
+  },
+  {
+    "title": "DevFest Douala 2025",
+    "description": "Theme: \"Building safe, secure and scalable solutions with AI and Cloud.\" Dive into the world of artificial intelligence and the cloud — join fellow tech-enthusiasts for a day of learning and networking. Open to all technology enthusiasts.",
+    "event_date": "2025-11-29",
+    "location": "CanalOlympia Bessengué, Douala, Cameroon",
+    "organizer": "GDG Douala",
+    "registration_url": "https://gdg.community.dev/events/details/google-gdg-douala-presents-devfest-douala-2025/"
   }
   
 ]
