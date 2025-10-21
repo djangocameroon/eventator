@@ -70,6 +70,14 @@
     "location": "CanalOlympia Bessengué, Douala, Cameroon",
     "organizer": "GDG Douala",
     "registration_url": "https://gdg.community.dev/events/details/google-gdg-douala-presents-devfest-douala-2025/"
+  },
+  {
+  "title": "Djangonistas / Django Cameroon Community",
+  "description": "La communauté Djangonistas est le point de ralliement des développeurs et passionnés de Django et Python au Cameroun. Elle vise à promouvoir l'utilisation du framework Django, à partager les connaissances, à soutenir l'apprentissage et à faciliter la collaboration sur des projets. Des meetups réguliers, ateliers de code et discussions sont organisés pour renforcer l'écosystème Python/Django local.",
+  "event_date": "2025-02-22",
+  "location": "Principalement Douala et Yaoundé (variable selon l'événement)",
+  "organizer": "Djangonistas / Django Cameroon Community",
+  "registration_url": "Rechercher les groupes Facebook/WhatsApp/Telegram de 'Django Cameroon' ou 'Djangonistas' pour les annonces spécifiques d'événements."
   }
   
 ]
