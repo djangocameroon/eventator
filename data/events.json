@@ -48,6 +48,14 @@
     "registration_url": "https://lu.ma/14ixmc37"
   },
   {
+    "title": "DevFest Yaoundé 2025 – Ateliers Pratiques",
+    "description": "Participez aux ateliers pratiques du DevFest Yaoundé 2025 organisés par le Google Developer Group (GDG) Yaoundé. Apprenez auprès d'experts, testez les dernières technologies et développez vos compétences en IA, AR/VR, Cloud, Flutter et plus encore.",
+    "event_date": "2025-10-25",
+    "location": "Université de Yaoundé I,  CUTI",
+    "organizer": "Google Developer Group (GDG) Yaoundé",
+    "registration_url": "https://www.gdgyaounde.com/devfest2025"
+  },  
+  {
     "title": "DevFest Bamenda 2025",
     "description": "DevFest Bamenda is GDG Bamenda’s biggest annual tech event, part of the global Google Developer Groups festival. It brings together developers, entrepreneurs, and tech enthusiasts for two days of talks, workshops, code labs, and networking. The 2025 theme is “Building Safe, Secure and Scalable Solutions with AI and Cloud.”",
     "event_date": "2025-11-28",
